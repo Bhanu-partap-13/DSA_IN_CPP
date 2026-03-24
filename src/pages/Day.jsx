@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import { FaFileCode, FaFileAlt, FaDownload, FaTerminal, FaRegStickyNote, FaExpand, FaCompress, FaSearchPlus, FaSearchMinus } from "react-icons/fa";
+import { FaFileCode, FaFileAlt, FaDownload, FaTerminal, FaRegStickyNote, FaExpand, FaCompress, FaSearchPlus, FaSearchMinus, FaGithub, FaStar, FaTimes } from "react-icons/fa";
 import contentIndex from "../data/contentIndex.json";
 import Loader from "../components/Loader";
 import CodeBlock from "../components/CodeBlock";
-import { useTheme } from "../contexts/ThemeContext";
 
 const fetchFileContent = async (dayFolder, fileName) => {
   try {
@@ -43,7 +42,6 @@ const getFileType = (fileName) => {
 };
 
 const Day = () => {
-  const { theme } = useTheme();
   const { dayId } = useParams();
   const dayNum = parseInt(dayId, 10);
   const dayFolder = `Day${dayId}`;
@@ -57,6 +55,9 @@ const Day = () => {
   const [error, setError] = useState("");
   const [isFullSize, setIsFullSize] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(150);
+  const [showStarPrompt, setShowStarPrompt] = useState(false);
+
+  const githubRepoUrl = "https://github.com/Bhanu-partap-13/30-Days-Of-CPP";
 
   useEffect(() => {
     const fileList = contentIndex?.days?.[dayFolder] || [];
@@ -71,6 +72,20 @@ const Day = () => {
       setError(`No files are listed for ${dayFolder}. Ensure files exist in /public/${dayFolder}/ and regenerate the content index.`);
     }
   }, [dayId, dayFolder]);
+
+  useEffect(() => {
+    const shouldHidePrompt = localStorage.getItem("hide-github-star-prompt") === "true";
+    if (shouldHidePrompt) {
+      setShowStarPrompt(false);
+      return;
+    }
+
+    const popupTimer = window.setTimeout(() => {
+      setShowStarPrompt(true);
+    }, 650);
+
+    return () => window.clearTimeout(popupTimer);
+  }, [dayId]);
 
   useEffect(() => {
     if (files.length > 0 && files[selectedFileIdx]) {
@@ -96,14 +111,19 @@ const Day = () => {
   useEffect(() => {
     if (!isFullSize) {
       setZoomLevel(150);
-      return;
     }
 
     const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    if (isFullSize || showStarPrompt) {
+      document.body.style.overflow = "hidden";
+    }
 
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
+        if (showStarPrompt) {
+          setShowStarPrompt(false);
+          return;
+        }
         setIsFullSize(false);
       }
     };
@@ -114,7 +134,7 @@ const Day = () => {
       window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = originalOverflow;
     };
-  }, [isFullSize]);
+  }, [isFullSize, showStarPrompt]);
 
   const handleCopyRunCommand = (fileName) => {
     const command = `g++ ${dayFolder}/${fileName} -o ${fileName.split('.')[0]} && ./${fileName.split('.')[0]}`;
@@ -132,9 +152,64 @@ const Day = () => {
   const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 10, 200));
   const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 10, 70));
   const handleZoomReset = () => setZoomLevel(150);
+  const selectedFileType = files[selectedFileIdx] ? getFileType(files[selectedFileIdx]) : "other";
+
+  const handleDontShowAgain = () => {
+    localStorage.setItem("hide-github-star-prompt", "true");
+    setShowStarPrompt(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-4 pb-8 px-2 md:px-8">
+      {showStarPrompt && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/70 p-4 backdrop-blur-sm">
+          <div className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+            <div className="absolute -left-10 -top-10 h-36 w-36 rounded-full bg-blue-400/20 blur-3xl dark:bg-blue-500/25" />
+            <div className="absolute -right-14 bottom-0 h-36 w-36 rounded-full bg-cyan-400/20 blur-3xl dark:bg-cyan-500/20" />
+
+            <button
+              onClick={() => setShowStarPrompt(false)}
+              className="absolute right-3 top-3 rounded-full p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+              aria-label="Close star prompt"
+            >
+              <FaTimes />
+            </button>
+
+            <div className="relative p-6 sm:p-8">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300 bg-yellow-50 px-3 py-1 text-xs font-semibold text-yellow-700 dark:border-yellow-500/40 dark:bg-yellow-500/10 dark:text-yellow-300">
+                <FaStar className="text-yellow-500" />
+                Support the project
+              </div>
+
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
+                Enjoying Day {dayNum}? Star us on GitHub
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-base">
+                If this folder helped you learn, a GitHub star motivates future updates and helps more learners discover this roadmap.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href={githubRepoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:from-blue-700 hover:to-cyan-600"
+                >
+                  <FaGithub className="text-base" />
+                  Star us on GitHub
+                </a>
+                <button
+                  onClick={handleDontShowAgain}
+                  className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
+                >
+                  Don&apos;t show again
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {loading && <Loader />}
       <div className="max-w-7xl w-full mx-auto flex flex-col gap-6">
         {/* Header */}
@@ -223,17 +298,20 @@ const Day = () => {
                 )}
               </div>
             </div>
-            <div className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert max-w-none" style={{ fontSize: `${isFullSize ? zoomLevel : 100}%` }}>
+            <div
+              className={selectedFileType === "cpp" ? "max-w-none" : "prose prose-sm sm:prose lg:prose-lg dark:prose-invert max-w-none"}
+              style={{ fontSize: `${isFullSize ? zoomLevel : 100}%` }}
+            >
               {error ? (
                 <div className="text-red-500 dark:text-red-400 font-semibold text-center py-8 bg-red-50 dark:bg-red-900/20 rounded-lg">{error}</div>
               ) : files[selectedFileIdx] ? (
-                getFileType(files[selectedFileIdx]) === "md" ? (
+                selectedFileType === "md" ? (
                   <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6 text-left">
                     <ReactMarkdown>{fileContent}</ReactMarkdown>
                   </div>
-                ) : getFileType(files[selectedFileIdx]) === "cpp" ? (
+                ) : selectedFileType === "cpp" ? (
                   <CodeBlock code={fileContent} language="cpp" fileName={files[selectedFileIdx]} />
-                ) : getFileType(files[selectedFileIdx]) === "txt" ? (
+                ) : selectedFileType === "txt" ? (
                   <pre className="whitespace-pre-wrap break-all bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg">{fileContent}</pre>
                 ) : (
                   <pre className="whitespace-pre-wrap break-all text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg">(Binary or unsupported file type)</pre>

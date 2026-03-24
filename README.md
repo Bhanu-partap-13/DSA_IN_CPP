@@ -34,27 +34,27 @@
 
 ## Table of Contents
 
-<a href="https://github.com/Bhanu-partap-13/45-Days-Of-C-/">
+<a href="https://github.com/Bhanu-partap-13/30-Days-Of-CPP">
   <img src="imgs/1.jpg" alt="Day01" width="400px">
 </a>
 
 |     Let's      |  Get Started           |
 |----------------|-------------------------------|
-| [![Day01](imgs/2.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day01)| [![Day02](imgs/3.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day02) | 
-| [![Day03](imgs/4.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day03)| [![Day04](imgs/5.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day04) | 
-| [![Day05](imgs/6.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day05)| [![Day06](imgs/7.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day06) | 
-| [![Day07](imgs/8.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day07)| [![Day08](imgs/9.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day08) | 
-| [![Day09](imgs/10.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day09)| [![Day10](imgs/11.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day10) | 
-| [![Day11](imgs/12.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day11)| [![Day12](imgs/13.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day12) | 
-| [![Day13](imgs/14.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day13)| [![Day14](imgs/15.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day14) | 
-| [![Day15](imgs/16.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day15)| [![Day16](imgs/17.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day16) | 
-| [![Day17](imgs/18.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day17)| [![Day18](imgs/19.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day18) | 
-| [![Day19](imgs/20.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day19)| [![Day20](imgs/21.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day20) | 
-| [![Day21](imgs/22.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day21)| [![Day22](imgs/23.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day22) | 
-| [![Day23](imgs/24.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day23)| [![Day24](imgs/25.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day24) | 
-| [![Day25](imgs/26.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day25)| [![Day26](imgs/27.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day26) | 
-| [![Day27](imgs/28.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day27)| [![Day28](imgs/29.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day28) | 
-| [![Day29](imgs/30.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day29)| [![Day30](imgs/31.jpg)](https://github.com/Bhanu-partap-13/45-Days-Of-C-/tree/main/Day30) | 
+| [![Day01](imgs/2.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day01)| [![Day02](imgs/3.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day02) | 
+| [![Day03](imgs/4.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day03)| [![Day04](imgs/5.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day04) | 
+| [![Day05](imgs/6.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day05)| [![Day06](imgs/7.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day06) | 
+| [![Day07](imgs/8.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day07)| [![Day08](imgs/9.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day08) | 
+| [![Day09](imgs/10.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day09)| [![Day10](imgs/11.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day10) | 
+| [![Day11](imgs/12.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day11)| [![Day12](imgs/13.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day12) | 
+| [![Day13](imgs/14.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day13)| [![Day14](imgs/15.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day14) | 
+| [![Day15](imgs/16.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day15)| [![Day16](imgs/17.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day16) | 
+| [![Day17](imgs/18.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day17)| [![Day18](imgs/19.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day18) | 
+| [![Day19](imgs/20.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day19)| [![Day20](imgs/21.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day20) | 
+| [![Day21](imgs/22.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day21)| [![Day22](imgs/23.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day22) | 
+| [![Day23](imgs/24.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day23)| [![Day24](imgs/25.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day24) | 
+| [![Day25](imgs/26.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day25)| [![Day26](imgs/27.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day26) | 
+| [![Day27](imgs/28.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day27)| [![Day28](imgs/29.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day28) | 
+| [![Day29](imgs/30.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day29)| [![Day30](imgs/31.jpg)](https://github.com/Bhanu-partap-13/30-Days-Of-CPP/tree/main/public/Day30) | 
 
 </div>
 

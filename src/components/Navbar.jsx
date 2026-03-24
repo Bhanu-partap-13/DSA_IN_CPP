@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaGithub, FaSun, FaMoon, FaCode } from "react-icons/fa";
+import { FaGithub, FaSun, FaMoon, FaCode, FaStar } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { useTheme } from "../contexts/ThemeContext";
 
@@ -56,10 +56,15 @@ const Navbar = () => {
                 href="https://github.com/Bhanu-partap-13/30-Days-Of-CPP"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                aria-label="GitHub Repository"
+                className="group relative inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-300 hover:bg-amber-50 hover:text-amber-700 hover:shadow dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:border-amber-400/60 dark:hover:bg-amber-500/10 dark:hover:text-amber-300"
+                aria-label="Star us on GitHub"
+                title="Star us on GitHub"
               >
-                <FaGithub className="w-5 h-5" />
+                <span className="relative inline-flex items-center justify-center">
+                  <FaGithub className="h-5 w-5" />
+                  <FaStar className="absolute -right-2 -top-2 h-3 w-3 text-amber-400 transition-transform group-hover:scale-110" />
+                </span>
+                <span className="hidden lg:inline">Star us on GitHub</span>
               </a>
               <button
                 onClick={toggleTheme}
@@ -111,10 +116,13 @@ const Navbar = () => {
               href="https://github.com/Bhanu-partap-13/30-Days-Of-CPP"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+              className="group mt-2 flex items-center justify-between rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-700 transition-colors hover:bg-amber-100 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-300 dark:hover:bg-amber-500/20"
             >
-              <FaGithub className="inline mr-2" />
-              GitHub
+              <span className="flex items-center gap-2">
+                <FaGithub className="text-base" />
+                Star us on GitHub
+              </span>
+              <FaStar className="text-xs transition-transform group-hover:scale-110" />
             </a>
           </div>
         )}

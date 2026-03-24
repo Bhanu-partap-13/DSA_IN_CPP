@@ -29,7 +29,7 @@ const CodeBlock = ({ code, language = 'cpp', fileName = '' }) => {
   };
 
   return (
-    <div className="relative group my-4 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/50 shadow-lg">
+    <div className="relative group my-4 w-full rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/50 shadow-lg">
       {fileName && (
         <div className="bg-gray-100 dark:bg-gray-800/50 px-4 py-2 text-sm font-mono text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700/50">
           {fileName}
@@ -56,6 +56,8 @@ const CodeBlock = ({ code, language = 'cpp', fileName = '' }) => {
             background: theme === 'dark' ? '#1f2937' : '#f9fafb',
             fontSize: '0.875rem',
             lineHeight: '1.5',
+            width: '100%',
+            overflowX: 'auto',
           }}
           showLineNumbers
           wrapLines

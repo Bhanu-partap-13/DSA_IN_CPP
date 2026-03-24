@@ -24,3 +24,4 @@ class Solution{
             ans.push_back(level);
         }
 }
+};
