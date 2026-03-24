@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiCode, FiExternalLink, FiAward } from 'react-icons/fi';
 import CodeBlock from '../components/CodeBlock';
 import Loader from '../components/Loader';
+import contentIndex from '../data/contentIndex.json';
 
 const Leetcode = () => {
   const [problems, setProblems] = useState([]);
@@ -10,63 +11,64 @@ const Leetcode = () => {
   const [fileContent, setFileContent] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // LeetCode problems with metadata
-  const leetcodeProblems = [
-    {
-      number: '153',
-      title: 'Find Minimum in Rotated Sorted Array',
-      difficulty: 'Medium',
-      slug: 'find-minimum-in-rotated-sorted-array',
-      file: '153.cpp'
-    },
-    {
-      number: '1760',
-      title: 'Minimum Limit of Balls in a Bag',
-      difficulty: 'Medium',
-      slug: 'minimum-limit-of-balls-in-a-bag',
-      file: '1760.cpp'
-    },
-    {
-      number: '239',
-      title: 'Sliding Window Maximum',
-      difficulty: 'Hard',
-      slug: 'sliding-window-maximum',
-      file: '239.cpp'
-    },
-    {
-      number: '33',
+  const knownMetadata = {
+    33: {
       title: 'Search in Rotated Sorted Array',
       difficulty: 'Medium',
       slug: 'search-in-rotated-sorted-array',
-      file: '33.cpp'
     },
-    {
-      number: '643',
-      title: 'Maximum Average Subarray I',
-      difficulty: 'Easy',
-      slug: 'maximum-average-subarray-i',
-      file: '643.cpp'
-    },
-    {
-      number: '680',
-      title: 'Valid Palindrome II',
-      difficulty: 'Easy',
-      slug: 'valid-palindrome-ii',
-      file: '680.cpp'
-    },
-    {
-      number: '74',
+    74: {
       title: 'Search a 2D Matrix',
       difficulty: 'Medium',
       slug: 'search-a-2d-matrix',
-      file: '74.cpp'
-    }
-  ];
+    },
+    153: {
+      title: 'Find Minimum in Rotated Sorted Array',
+      difficulty: 'Medium',
+      slug: 'find-minimum-in-rotated-sorted-array',
+    },
+    239: {
+      title: 'Sliding Window Maximum',
+      difficulty: 'Hard',
+      slug: 'sliding-window-maximum',
+    },
+    643: {
+      title: 'Maximum Average Subarray I',
+      difficulty: 'Easy',
+      slug: 'maximum-average-subarray-i',
+    },
+    680: {
+      title: 'Valid Palindrome II',
+      difficulty: 'Easy',
+      slug: 'valid-palindrome-ii',
+    },
+    1760: {
+      title: 'Minimum Limit of Balls in a Bag',
+      difficulty: 'Medium',
+      slug: 'minimum-limit-of-balls-in-a-bag',
+    },
+  };
 
   useEffect(() => {
-    setProblems(leetcodeProblems);
-    if (leetcodeProblems.length > 0) {
-      setSelectedProblem(leetcodeProblems[0]);
+    const indexedProblems = (contentIndex?.leetcode || [])
+      .filter((fileName) => fileName.toLowerCase().endsWith('.cpp'))
+      .map((fileName) => {
+        const number = fileName.replace(/\.cpp$/i, '');
+        const metadata = knownMetadata[number] || {};
+
+        return {
+          number,
+          title: metadata.title || `Problem ${number}`,
+          difficulty: metadata.difficulty || 'Medium',
+          slug: metadata.slug || '',
+          file: fileName,
+        };
+      })
+      .sort((a, b) => Number(a.number) - Number(b.number));
+
+    setProblems(indexedProblems);
+    if (indexedProblems.length > 0) {
+      setSelectedProblem(indexedProblems[0]);
     }
     setLoading(false);
   }, []);
@@ -79,7 +81,9 @@ const Leetcode = () => {
 
   const loadFileContent = async (fileName) => {
     try {
-      const response = await fetch(`/Leetcode/${fileName}`);
+      const response = await fetch(`/Leetcode/${fileName}?t=${Date.now()}`, {
+        cache: 'no-store',
+      });
       const content = await response.text();
       setFileContent(content);
     } catch (error) {
@@ -187,7 +191,7 @@ const Leetcode = () => {
                 
                 {/* Animated View on LeetCode Button */}
                 <motion.a
-                  href={`https://leetcode.com/problems/${selectedProblem?.slug}/`}
+                  href={selectedProblem?.slug ? `https://leetcode.com/problems/${selectedProblem.slug}/` : `https://leetcode.com/problemset/all/?search=${selectedProblem?.number || ''}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02, y: -2 }}

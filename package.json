@@ -4,6 +4,9 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "generate:content-index": "node scripts/generate-content-index.mjs",
+        "predev": "npm run generate:content-index",
+        "prebuild": "npm run generate:content-index",
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview"

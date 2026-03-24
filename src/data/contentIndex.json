@@ -1,0 +1,297 @@
+{
+  "generatedAt": "2026-03-24T15:32:17.676Z",
+  "days": {
+    "Day01": [
+      "datatypes.cpp",
+      "datatypes.exe",
+      "header.cpp",
+      "operators.cpp",
+      "README.md",
+      "streams.cpp",
+      "tempCodeRunnerFile.cpp"
+    ],
+    "Day02": [
+      "classes.cpp",
+      "conditions.cpp",
+      "loops.cpp",
+      "prime.cpp",
+      "primesieve.cpp",
+      "readme.md"
+    ],
+    "Day03": [
+      "Enumeration.cpp",
+      "readme.md",
+      "structure.cpp",
+      "Union.cpp"
+    ],
+    "Day04": [
+      "inlinefn.cpp",
+      "readme.md",
+      "static.cpp"
+    ],
+    "Day05": [
+      "default.cpp",
+      "manipulator.cpp",
+      "readme.md"
+    ],
+    "Day06": [
+      "fnOverloading.cpp",
+      "friendfn.cpp",
+      "readme.md",
+      "scoperules.cpp"
+    ],
+    "Day07": [
+      "function.cpp",
+      "pointer.cpp",
+      "readme.md",
+      "Recursion.cpp"
+    ],
+    "Day08": [
+      "arithmetic.cpp",
+      "pointertopointer.cpp",
+      "readme.md",
+      "voidpointer.cpp"
+    ],
+    "Day09": [
+      "classpointer.cpp",
+      "pointertoobject.cpp",
+      "pointertypes.cpp",
+      "readme.md",
+      "thispointer.cpp"
+    ],
+    "Day10": [
+      "1DArray.cpp",
+      "2DArray.cpp",
+      "ArrayOfObjects.cpp",
+      "readme.md"
+    ],
+    "Day11": [
+      "memeberfn.cpp",
+      "modifiers.cpp",
+      "readme.md"
+    ],
+    "Day12": [
+      "constructor.cpp",
+      "constructor.exe",
+      "deconstructor.cpp",
+      "deconstructor.exe",
+      "readme.md"
+    ],
+    "Day13": [
+      "copy.cpp",
+      "initializerlist.cpp",
+      "Parametrized.cpp",
+      "readme.md"
+    ],
+    "Day14": [
+      "data.txt",
+      "example.txt",
+      "fileHandling.cpp",
+      "fileHandling.exe",
+      "randomaccess.cpp",
+      "randomaccess.exe",
+      "readme.md",
+      "sequentialaccess.cpp",
+      "sequentialaccess.exe"
+    ],
+    "Day15": [
+      "operatoroverloading.cpp",
+      "operatoroverloading.exe",
+      "readme.md",
+      "unaryoperator.cpp"
+    ],
+    "Day16": [
+      "binaryop.cpp",
+      "binaryop.exe",
+      "readme.md",
+      "unaryop.cpp",
+      "unaryop.exe"
+    ],
+    "Day17": [
+      "readme.md",
+      "typeconversion.cpp",
+      "typeconversion.exe"
+    ],
+    "Day18": [
+      "basictoclass.cpp",
+      "basictoclass.exe",
+      "classtobasic.cpp",
+      "classtobasic.exe",
+      "classtoclass.cpp",
+      "classtoclass.exe",
+      "readme.md"
+    ],
+    "Day19": [
+      "inheritance.cpp",
+      "inheritance.exe",
+      "readme.md"
+    ],
+    "Day20": [
+      "readme.md",
+      "typesofinheritance.cpp",
+      "typesofinheritance.exe"
+    ],
+    "Day21": [
+      "ambiguity.cpp",
+      "ambiguity.exe",
+      "readme.md",
+      "virtual.cpp",
+      "virtual.exe"
+    ],
+    "Day22": [
+      "dma.cpp",
+      "dma.exe",
+      "readme.md"
+    ],
+    "Day23": [
+      "memoryleak.cpp",
+      "memoryleak.exe",
+      "readme.md",
+      "virtualDestructor.cpp",
+      "virtualDestructor.exe"
+    ],
+    "Day24": [
+      "polymorphism.cpp",
+      "purevirtual.cpp",
+      "purevirtual.exe",
+      "readme.md",
+      "virtualfn.cpp",
+      "virtualfn.exe"
+    ],
+    "Day25": [
+      "abstractclass.cpp",
+      "abstractclass.exe",
+      "concreteclass.cpp",
+      "concreteclass.exe",
+      "readme.md",
+      "refrentialclass.cpp",
+      "refrentialclass.exe"
+    ],
+    "Day26": [
+      "earlybinding.cpp",
+      "earlybinding.exe",
+      "latebinding.cpp",
+      "latebinding.exe",
+      "readme.md"
+    ],
+    "Day27": [
+      "exceptionhandling.cpp",
+      "exceptionhandling.exe",
+      "readme.md"
+    ],
+    "Day28": [
+      "readme.md",
+      "rethrowing.cpp",
+      "rethrowing.exe",
+      "templates.cpp",
+      "templates.exe"
+    ],
+    "Day29": [
+      "doublets.cpp",
+      "doublets.exe",
+      "greater.cpp",
+      "readme.md",
+      "reverse.cpp",
+      "rotate.cpp",
+      "sort.cpp",
+      "STLbasics.cpp",
+      "STLbasics.exe",
+      "templateinheritance.cpp",
+      "templateinheritance.exe",
+      "threeLargest.cpp"
+    ],
+    "Day30": [
+      "readme.md",
+      "stl.cpp",
+      "stl.exe"
+    ]
+  },
+  "leetcode": [
+    "4.cpp",
+    "33.cpp",
+    "74.cpp",
+    "98.cpp",
+    "110.cpp",
+    "153.cpp",
+    "239.cpp",
+    "643.cpp",
+    "680.cpp",
+    "1009.cpp",
+    "1760.cpp",
+    "1980.cpp",
+    "1984.cpp",
+    "2906.cpp",
+    "2939.cpp"
+  ],
+  "problems": [
+    "aggressivecow.cpp",
+    "houseRobber1.cpp",
+    "houseRobber2.cpp",
+    "palindromeArray.cpp"
+  ],
+  "topics": {
+    "Array": [
+      "arr.cpp",
+      "duplicate_map_arr.cpp",
+      "maxsubarray.cpp",
+      "medianofArr.cpp",
+      "minsubarray.cpp",
+      "noOfSubArray.cpp",
+      "subArray.cpp",
+      "subArrayCount.cpp",
+      "twoSum.cpp",
+      "twoSumOptimized.cpp"
+    ],
+    "Bit Manuplation": [
+      "bintodec.cpp",
+      "dectoBinary.cpp"
+    ],
+    "LinkedList": [
+      "copyLL.cpp",
+      "FindMidElement.cpp",
+      "isPalindrome.cpp",
+      "lruCache.cpp",
+      "reverseLL.cpp"
+    ],
+    "Pattern Matching": [
+      "01.cpp",
+      "02.cpp",
+      "03.cpp",
+      "pascal.cpp"
+    ],
+    "Queue": [
+      "queueu.cpp",
+      "stackusingqueue.cpp"
+    ],
+    "Recursion": [
+      "towerofHanoi.cpp"
+    ],
+    "Search": [
+      "binarySearch.cpp",
+      "binarySearch2.cpp",
+      "kavinSearch.cpp",
+      "peakElement.cpp",
+      "peakElement2.cpp",
+      "peakElement3.cpp"
+    ],
+    "Sort": [
+      "bubblesort.cpp",
+      "duthcFlag.cpp",
+      "insertionSort.cpp",
+      "mergeSort.cpp",
+      "pushinZerToEnd.cpp",
+      "quicksort.cpp",
+      "selectionSort.cpp"
+    ],
+    "Stacks": [
+      "intro.cpp"
+    ],
+    "Tree": [
+      "balancedtree.cpp",
+      "boundaryTraversal.cpp",
+      "totalNodes.cpp",
+      "validateBST.cpp",
+      "zigzagorderTraversal.cpp"
+    ]
+  }
+}

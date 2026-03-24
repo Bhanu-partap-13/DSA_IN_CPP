@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
-import { FaFileCode, FaFileAlt, FaDownload, FaTerminal, FaRegStickyNote } from "react-icons/fa";
-import daysFiles from "../data/daysFiles.json";
+import { FaFileCode, FaFileAlt, FaDownload, FaTerminal, FaRegStickyNote, FaExpand, FaCompress, FaSearchPlus, FaSearchMinus } from "react-icons/fa";
+import contentIndex from "../data/contentIndex.json";
 import Loader from "../components/Loader";
 import CodeBlock from "../components/CodeBlock";
 import { useTheme } from "../contexts/ThemeContext";
 
 const fetchFileContent = async (dayFolder, fileName) => {
   try {
-    const response = await fetch(`/${dayFolder}/${fileName}`);
+    const response = await fetch(`/${dayFolder}/${fileName}?t=${Date.now()}`, {
+      cache: "no-store",
+    });
     if (!response.ok) {
       throw new Error(`File not found or error fetching: ${dayFolder}/${fileName} (status: ${response.status})`);
     }
@@ -53,9 +55,11 @@ const Day = () => {
   const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isFullSize, setIsFullSize] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(150);
 
   useEffect(() => {
-    const fileList = daysFiles[dayFolder] || [];
+    const fileList = contentIndex?.days?.[dayFolder] || [];
     setFiles(fileList);
     setSelectedFileIdx(0);
     setNotes(localStorage.getItem(`notes-day${dayId}`) || "");
@@ -64,7 +68,7 @@ const Day = () => {
     if (fileList.length === 0) {
       setFileContent("");
       setLoading(false);
-      setError(`No files are listed for ${dayFolder}. Check src/data/daysFiles.json and ensure files are in /public/${dayFolder}/.`);
+      setError(`No files are listed for ${dayFolder}. Ensure files exist in /public/${dayFolder}/ and regenerate the content index.`);
     }
   }, [dayId, dayFolder]);
 
@@ -89,6 +93,29 @@ const Day = () => {
     }
   }, [selectedFileIdx, files, dayFolder, error]);
 
+  useEffect(() => {
+    if (!isFullSize) {
+      setZoomLevel(150);
+      return;
+    }
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsFullSize(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isFullSize]);
+
   const handleCopyRunCommand = (fileName) => {
     const command = `g++ ${dayFolder}/${fileName} -o ${fileName.split('.')[0]} && ./${fileName.split('.')[0]}`;
     navigator.clipboard.writeText(command).then(() => {
@@ -101,6 +128,10 @@ const Day = () => {
     setNotes(e.target.value);
     localStorage.setItem(`notes-day${dayId}`, e.target.value);
   };
+
+  const handleZoomIn = () => setZoomLevel((prev) => Math.min(prev + 10, 200));
+  const handleZoomOut = () => setZoomLevel((prev) => Math.max(prev - 10, 70));
+  const handleZoomReset = () => setZoomLevel(150);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-4 pb-8 px-2 md:px-8">
@@ -141,28 +172,63 @@ const Day = () => {
         </div>
 
         {/* Main Content Layout */}
-        <div className="flex flex-col lg:flex-row gap-6">
+        <div className={`flex flex-col gap-6 ${!isFullSize ? "lg:grid lg:grid-cols-[1fr_minmax(0,56rem)_20rem_1fr] lg:items-start" : ""}`}>
           {/* Main File Content */}
-          <div className="flex-1 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div className={`flex-1 w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 ${!isFullSize ? "lg:col-start-2 lg:col-end-3" : ""} ${isFullSize ? "fixed inset-0 z-50 rounded-none border-0 p-4 md:p-6 overflow-y-auto" : ""}`}>
+            <div className={`w-full mx-auto ${isFullSize ? "max-w-5xl" : "max-w-none"}`}>
             <div className="flex items-center justify-between mb-4">
               <span className="text-sm text-blue-600 dark:text-blue-400 font-mono">{files[selectedFileIdx] || 'No file selected.'}</span>
-              {files[selectedFileIdx] && (
-                <a
-                  href={`/${dayFolder}/${files[selectedFileIdx]}`}
-                  download
+              <div className="flex items-center gap-2">
+                {isFullSize && (
+                  <>
+                    <button
+                      onClick={handleZoomOut}
+                      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+                      title="Zoom out"
+                    >
+                      <FaSearchMinus />
+                    </button>
+                    <button
+                      onClick={handleZoomReset}
+                      className="px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition text-xs font-semibold"
+                      title="Reset zoom"
+                    >
+                      {zoomLevel}%
+                    </button>
+                    <button
+                      onClick={handleZoomIn}
+                      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+                      title="Zoom in"
+                    >
+                      <FaSearchPlus />
+                    </button>
+                  </>
+                )}
+                <button
+                  onClick={() => setIsFullSize((prev) => !prev)}
                   className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
-                  title="Download file"
+                  title={isFullSize ? "Exit full size" : "Open full size"}
                 >
-                  <FaDownload />
-                </a>
-              )}
+                  {isFullSize ? <FaCompress /> : <FaExpand />}
+                </button>
+                {files[selectedFileIdx] && (
+                  <a
+                    href={`/${dayFolder}/${files[selectedFileIdx]}`}
+                    download
+                    className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+                    title="Download file"
+                  >
+                    <FaDownload />
+                  </a>
+                )}
+              </div>
             </div>
-            <div className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert max-w-none">
+            <div className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert max-w-none" style={{ fontSize: `${isFullSize ? zoomLevel : 100}%` }}>
               {error ? (
                 <div className="text-red-500 dark:text-red-400 font-semibold text-center py-8 bg-red-50 dark:bg-red-900/20 rounded-lg">{error}</div>
               ) : files[selectedFileIdx] ? (
                 getFileType(files[selectedFileIdx]) === "md" ? (
-                  <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6">
+                  <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6 text-left">
                     <ReactMarkdown>{fileContent}</ReactMarkdown>
                   </div>
                 ) : getFileType(files[selectedFileIdx]) === "cpp" ? (
@@ -178,10 +244,12 @@ const Day = () => {
                 </div>
               )}
             </div>
+            </div>
           </div>
 
           {/* Sidebar */}
-          <div className="w-full lg:w-80 flex-shrink-0 flex flex-col gap-6">
+          {!isFullSize && (
+          <div className="w-full lg:w-80 lg:col-start-3 lg:col-end-4 flex-shrink-0 flex flex-col gap-6">
             {/* Files List */}
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 border border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center"><FaFileAlt className="mr-2 text-blue-500" />Files</h3>
@@ -240,6 +308,7 @@ const Day = () => {
               </button>
             </div>
           </div>
+          )}
         </div>
       </div>
     </div>

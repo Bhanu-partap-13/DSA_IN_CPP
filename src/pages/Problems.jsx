@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiTarget } from 'react-icons/fi';
 import CodeBlock from '../components/CodeBlock';
 import Loader from '../components/Loader';
+import contentIndex from '../data/contentIndex.json';
 
 const Problems = () => {
   const [files, setFiles] = useState([]);
@@ -21,8 +22,7 @@ const Problems = () => {
   }, [selectedFile]);
 
   const loadFiles = () => {
-    // List of known problem files
-    const problemFiles = ['aggressivecow.cpp'];
+    const problemFiles = (contentIndex?.problems || []).filter((fileName) => fileName.toLowerCase().endsWith('.cpp'));
     setFiles(problemFiles);
     if (problemFiles.length > 0) {
       setSelectedFile(problemFiles[0]);
@@ -34,7 +34,9 @@ const Problems = () => {
     if (!fileName) return;
     
     try {
-      const response = await fetch(`/Problems/${fileName}`);
+      const response = await fetch(`/Problems/${fileName}?t=${Date.now()}`, {
+        cache: 'no-store',
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

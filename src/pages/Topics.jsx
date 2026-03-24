@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiArrowLeft, FiFileText } from 'react-icons/fi';
 import CodeBlock from '../components/CodeBlock';
 import Loader from '../components/Loader';
+import contentIndex from '../data/contentIndex.json';
 
 const Topics = () => {
   const { topicName } = useParams();
@@ -24,25 +25,12 @@ const Topics = () => {
 
   const loadFiles = () => {
     setLoading(true);
-    // Use predefined file lists for each topic
-    const fallbackFiles = getFallbackFiles(topicName);
-    setFiles(fallbackFiles);
-    if (fallbackFiles.length > 0) {
-      setSelectedFile(fallbackFiles[0]);
+    const topicFiles = (contentIndex?.topics?.[topicName] || []).filter((fileName) => fileName.toLowerCase().endsWith('.cpp'));
+    setFiles(topicFiles);
+    if (topicFiles.length > 0) {
+      setSelectedFile(topicFiles[0]);
     }
     setLoading(false);
-  };
-
-  const getFallbackFiles = (topic) => {
-    const fileMap = {
-      'Array': ['arr.cpp', 'duplicate_map_arr.cpp', 'maxsubarray.cpp', 'minsubarray.cpp', 'noOfSubArray.cpp', 'subArray.cpp', 'subArrayCount.cpp', 'twoSum.cpp', 'twoSumOptimized.cpp'],
-      'LinkedList': ['FindMidElement.cpp', 'isPalindrome.cpp'],
-      'Sort': ['bubblesort.cpp', 'duthcFlag.cpp', 'insertionSort.cpp', 'mergeSort.cpp', 'pushinZerToEnd.cpp', 'quicksort.cpp', 'selectionSort.cpp'],
-      'Search': ['binarySearch.cpp', 'binarySearch2.cpp', 'kavinSearch.cpp', 'peakElement.cpp', 'peakElement2.cpp', 'peakElement3.cpp'],
-      'Pattern Matching': ['01.cpp', '02.cpp', '03.cpp', 'pascal.cpp'],
-      'Tree': ['balancedtree.cpp']
-    };
-    return fileMap[topic] || [];
   };
 
   const loadFileContent = async (fileName) => {
@@ -50,7 +38,9 @@ const Topics = () => {
     
     try {
       setLoading(true);
-      const response = await fetch(`/Topics/${topicName}/${fileName}`);
+      const response = await fetch(`/Topics/${topicName}/${fileName}?t=${Date.now()}`, {
+        cache: 'no-store',
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
