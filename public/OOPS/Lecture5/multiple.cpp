@@ -2,6 +2,10 @@
 using namespace std;
 
 class Engineer{
+    void money(){
+        cout<<"Money"<<endl;
+    }
+    //private wale inherit nhi hote h
     public:
     string career;
     void work(){
@@ -32,5 +36,7 @@ class Person: public Engineer, public YouTuber{
 };
 
 int main(){
-    
+    Person P1("Enterprenuer", "Brainic Bhanu", "Bhanu");
+    P1.display();
 }
+

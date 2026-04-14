@@ -27,7 +27,7 @@ class Manager: public Employee{
         this->promotion = promotion;
     }
     void result(){
-        cout<<promotion<<"You have been promoted to "<<salary<<endl;
+        cout<<promotion<<" "<<name<<"You are the king of the company as you are the founder "<<salary<<endl;
     }
 };
 
