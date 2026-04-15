@@ -15,14 +15,14 @@ class Human{
 //human <- boy -> male
 //human <- girl -> female
 
-Class Male{
+class Male{
     public:
     void display(){
         cout<<"I am a male"<<endl;
     }
 };
 
-Class Female{
+class Female{
     public:
     void display(){
         cout<<"I am a female"<<endl;
@@ -32,4 +32,21 @@ Class Female{
 class Boy: public Human, public Male{
     public: 
     void display(){
-        cout<< "I a"
+        cout<< "I am a boy"<<endl;
+    }
+};
+
+class Girl: public Human, public Female{
+    public:
+    void display(){
+        cout<<"I am a Female"<<endl;
+}
+};
+
+int main(){
+    Boy b;
+    Girl g;
+    b.display();
+    g.display();
+    return 0;
+}
