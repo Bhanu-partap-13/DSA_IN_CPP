@@ -71,34 +71,27 @@ int main(){
 //allocation of memory
 
 
-#include<iostream>
-#include<exception>
-using namespace std;
+// #include<iostream>
+// using namespace std;
 
-class exception{
-    protected:
-    string msg;
-    public:
-    exception(string msg) this-> msg = msg;
-    string what(){
-        return msg;
-    }
-};
-int main(){
-    //int *ptr = new int[1000000000000];
-    // if(ptr == nullptr){
-    //     cout<<"Memory allocation failed\n";
-    // }
-    // else{
-    //     cout<<"Memory allocated successfully\n";
-    // }
-    // if we use if,and else then we will not be able to handle th exception..
-    try{
-        int *ptr = new int[1000000000000];
-        throw "Memory allocation success\n";
-        delete []ptr;
-    }
-    catch(const exception &e){
-        cout<<"Exception occur due to line: "<<e.what()<<endl; 
-    }
-}
+// int main(){
+//     //int *ptr = new int[1000000000000];
+//     // if(ptr == nullptr){
+//     //     cout<<"Memory allocation failed\n";
+//     // }
+//     // else{
+//     //     cout<<"Memory allocated successfully\n";
+//     // }
+//     // if we use if,and else then we will not be able to handle th exception..
+//     try{
+//         int *ptr = new int[1000000000000];
+//         throw "Memory allocation success\n";
+//         delete []ptr;
+//     }
+//     catch(const exception &e){
+//         cout<<"Exception occur due to line: "<<e.what()<<endl; 
+//     }
+//        catch(...){
+  //      cout<<"Exception occur\n";
+    //    }
+// }
