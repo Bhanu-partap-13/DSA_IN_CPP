@@ -57,5 +57,6 @@ int main(){
     q.push(40);
     q.push(50);
     q.display();
-
+    q.pop();
+    q.display();
 }
