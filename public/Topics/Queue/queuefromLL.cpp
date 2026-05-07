@@ -43,4 +43,24 @@ class Queue{
         if(head == NULL) return -1;
         return tail->data;
     }
+    void display(){
+        Node* temp = head;
+        while(!temp){
+            cout<< temp->data << " ";
+            temp = temp->next;
+        }
+        cout<< endl;
+    }
 };
+
+int main(){
+    Queue q;
+    q.push(10);
+    q.push(100);
+    q.push(1000);
+    q.push(10000);
+    q.display();
+}
+
+//advantages: 1. Unlimited Size, Natural lik LL implementation, wastage of size
+//dis ad: for each element we have val, node, so more space is required
