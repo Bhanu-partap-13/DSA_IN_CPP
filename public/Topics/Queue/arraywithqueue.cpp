@@ -4,10 +4,13 @@ using namespace std;
 class Queue{
     int f;
     int b;
-    int arr[5];
-    Queue(){
+    vector<int> arr;
+public:
+    Queue(int val){
         f = 0;
         b = 0;
+        vector<int> v(val);
+        arr = v;
     }
     void push(int val){
         if(b==5){
@@ -40,10 +43,19 @@ class Queue{
     void display(){
         for(int i=f; i<b; i++){
             cout<<arr[i]<<" ";
-                }
+        }
+    cout<<endl;
     }
 };
 
 int main(){
+    Queue q(5);
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
+    q.push(50);
+    q.display();
 
 }
