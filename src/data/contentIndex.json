@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-24T17:12:31.326Z",
+  "generatedAt": "2026-05-11T14:25:06.280Z",
   "days": {
     "Day01": [
       "datatypes.cpp",
@@ -209,11 +209,13 @@
   "leetcode": [
     "4.cpp",
     "33.cpp",
+    "53.cpp",
     "74.cpp",
     "98.cpp",
     "110.cpp",
     "153.cpp",
     "239.cpp",
+    "622.cpp",
     "643.cpp",
     "680.cpp",
     "1009.cpp",
@@ -260,6 +262,10 @@
       "pascal.cpp"
     ],
     "Queue": [
+      "arraywithqueue.cpp",
+      "basics.cpp",
+      "dequeue.cpp",
+      "queuefromLL.cpp",
       "queueu.cpp",
       "stackusingqueue.cpp"
     ],
@@ -284,7 +290,11 @@
       "selectionSort.cpp"
     ],
     "Stacks": [
-      "intro.cpp"
+      "intro.cpp",
+      "nextgre.cpp",
+      "pregre.cpp",
+      "removeDup.cpp",
+      "validParenthesis.cpp"
     ],
     "Tree": [
       "balancedtree.cpp",

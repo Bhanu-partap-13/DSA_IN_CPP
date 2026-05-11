@@ -75,6 +75,14 @@ class Dequeue{
         if(!tail) return -1;
         return tail->data;
     }
+    void display() {
+        Node* temp = head;
+        while(temp){
+            cout<< temp->data << " ";
+            temp = temp->next;
+        }
+        cout<< endl;
+    }
 };
 
 int main(){
@@ -87,4 +95,9 @@ int main(){
     dq.pushFront(300);
     dq.pushBack(40);
     dq.pushFront(400);
+    dq.display();
+    dq.popFront();
+    dq.display();
+    dq.popBack();
+    dq.display();
 }
