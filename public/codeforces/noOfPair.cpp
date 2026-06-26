@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+typedef long long ll;
 int main(){
     int n1;
     cin >> n1;
@@ -16,8 +16,8 @@ int main(){
         
         int l1 = 0;
         int low = 0;
-        int ans1 = 0;
-        int ans2 = 0;
+        ll ans1 = 0;
+        ll ans2 = 0;
         int high = arr.size() - 1;
         while(low < high){
             if(arr[low] + arr[high] <= r){
@@ -39,7 +39,7 @@ int main(){
                 high--;
             }
         }
-        int ans = ans1 - ans2;
+        ll ans = ans1 - ans2;
         cout << ans << endl;
     }
     return 0;
