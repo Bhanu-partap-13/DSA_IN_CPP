@@ -1,13 +1,13 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int bin(int a, int b){
+long long bin(int a, int b){
     if(b == 0) return 1;
-    
-    int ans = bin(a, b/2);
-    ans = ans * ans;
+    const long long MOD = 1e9 + 7;
+    long long ans = bin(a, b/2);
+    ans = (ans * ans) % MOD;
     if(b % 2 == 1){
-        ans *= a;
+        ans = (ans * a) % MOD;
     }
     return ans;
 }
