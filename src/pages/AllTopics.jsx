@@ -3,58 +3,98 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   FaLayerGroup, 
-  FaList, 
+  FaCodeBranch,
+  FaProjectDiagram,
+  FaStream,
+  FaCalculator,
   FaSearch, 
   FaSort, 
-  FaLink,
-  FaProjectDiagram
+  FaLink
 } from 'react-icons/fa';
+import contentIndex from '../data/contentIndex.json';
 
 const AllTopics = () => {
-  const topics = [
-    {
-      name: 'Array',
+  const topicMeta = {
+    Array: {
       icon: <FaLayerGroup />,
       color: 'from-blue-500 to-cyan-500',
       description: 'Array manipulation and algorithms',
-      count: 9
     },
-    {
-      name: 'LinkedList',
+    LinkedList: {
       icon: <FaLink />,
       color: 'from-purple-500 to-pink-500',
       description: 'Linked list operations and problems',
-      count: 2
     },
-    {
-      name: 'Sort',
+    Sort: {
       icon: <FaSort />,
       color: 'from-green-500 to-teal-500',
       description: 'Sorting algorithms and techniques',
-      count: 7
     },
-    {
-      name: 'Search',
+    Search: {
       icon: <FaSearch />,
       color: 'from-orange-500 to-red-500',
       description: 'Searching algorithms',
-      count: 6
     },
-    {
-      name: 'Pattern Matching',
+    Graphs: {
+      icon: <FaCodeBranch />,
+      color: 'from-indigo-500 to-blue-500',
+      description: 'Graph traversal, paths, and cycle detection',
+    },
+    'Pattern Matching': {
       icon: <FaProjectDiagram />,
       color: 'from-indigo-500 to-purple-500',
       description: 'Pattern matching algorithms',
-      count: 4
     },
-    {
-      name: 'Tree',
+    Tree: {
       icon: <FaProjectDiagram />,
       color: 'from-pink-500 to-rose-500',
       description: 'Tree data structure and algorithms',
-      count: 1
     },
-  ];
+    Queue: {
+      icon: <FaStream />,
+      color: 'from-cyan-500 to-sky-500',
+      description: 'Queue operations and queue-based patterns',
+    },
+    Stacks: {
+      icon: <FaStream />,
+      color: 'from-violet-500 to-fuchsia-500',
+      description: 'Stack operations and monotonic stack problems',
+    },
+    Recursion: {
+      icon: <FaCodeBranch />,
+      color: 'from-emerald-500 to-teal-500',
+      description: 'Recursive problem solving techniques',
+    },
+    NumberTheory: {
+      icon: <FaCalculator />,
+      color: 'from-amber-500 to-orange-500',
+      description: 'Prime factors, divisibility, and number properties',
+    },
+    'Bit Manuplation': {
+      icon: <FaCalculator />,
+      color: 'from-rose-500 to-red-500',
+      description: 'Binary representation and bitwise operations',
+    },
+  };
+
+  const topics = Object.entries(contentIndex?.topics || {})
+    .map(([name, files]) => {
+      const cppCount = files.filter((fileName) => fileName.toLowerCase().endsWith('.cpp')).length;
+      const meta = topicMeta[name] || {
+        icon: <FaProjectDiagram />,
+        color: 'from-slate-500 to-gray-600',
+        description: `${name} practice problems and notes`,
+      };
+
+      return {
+        name,
+        icon: meta.icon,
+        color: meta.color,
+        description: meta.description,
+        count: cppCount,
+      };
+    })
+    .sort((a, b) => a.name.localeCompare(b.name, 'en', { sensitivity: 'base' }));
 
   const containerVariants = {
     hidden: { opacity: 0 },
