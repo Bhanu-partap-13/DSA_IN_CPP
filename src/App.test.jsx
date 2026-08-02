@@ -8,5 +8,7 @@ describe("App", () => {
     expect(contentIndex).toHaveProperty("topics");
     expect(contentIndex).toHaveProperty("leetcode");
     expect(contentIndex).toHaveProperty("problems");
+    expect(contentIndex).toHaveProperty("codeforces");
+    expect(contentIndex).toHaveProperty("oops");
   });
 });

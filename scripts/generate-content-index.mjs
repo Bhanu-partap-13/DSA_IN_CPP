@@ -58,6 +58,15 @@ async function generateContentIndex() {
 
   const leetcode = await listFiles(path.join(publicDir, 'Leetcode'));
   const problems = await listFiles(path.join(publicDir, 'Problems'));
+  const codeforces = await listFiles(path.join(publicDir, 'codeforces'));
+
+  const oopsRoot = path.join(publicDir, 'OOPS');
+  const oopsLectures = await listDirectories(oopsRoot);
+  const oops = {};
+
+  for (const lectureFolder of oopsLectures) {
+    oops[lectureFolder] = await listFiles(path.join(oopsRoot, lectureFolder));
+  }
 
   const topicsRoot = path.join(publicDir, 'Topics');
   const topicFolders = await listDirectories(topicsRoot);
@@ -72,6 +81,8 @@ async function generateContentIndex() {
     days,
     leetcode,
     problems,
+    codeforces,
+    oops,
     topics,
   };
 

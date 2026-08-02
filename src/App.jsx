@@ -13,6 +13,9 @@ const AllTopics = React.lazy(() => import("./pages/AllTopics"));
 const Topics = React.lazy(() => import("./pages/Topics"));
 const Leetcode = React.lazy(() => import("./pages/Leetcode"));
 const Problems = React.lazy(() => import("./pages/Problems"));
+const Codeforces = React.lazy(() => import("./pages/Codeforces"));
+const OopsLectures = React.lazy(() => import("./pages/OopsLectures"));
+const OopsLectureFiles = React.lazy(() => import("./pages/OopsLectureFiles"));
 
 function App() {
   useEffect(() => {
@@ -35,6 +38,9 @@ function App() {
                 <Route path="/topics/:topicName" element={<Topics />} />
                 <Route path="/leetcode" element={<Leetcode />} />
                 <Route path="/problems" element={<Problems />} />
+                <Route path="/codeforces" element={<Codeforces />} />
+                <Route path="/oops" element={<OopsLectures />} />
+                <Route path="/oops/:lectureName" element={<OopsLectureFiles />} />
               </Routes>
             </Suspense>
           </main>

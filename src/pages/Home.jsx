@@ -8,7 +8,9 @@ import {
   FaLayerGroup, 
   FaLaptopCode,
   FaBookOpen,
-  FaChartLine
+  FaChartLine,
+  FaProjectDiagram,
+  FaNetworkWired
 } from "react-icons/fa";
 import { HiCode, HiSparkles } from "react-icons/hi";
 import daysFiles from "../data/daysFiles.json";
@@ -71,6 +73,26 @@ const Home = () => {
       color: "from-purple-500 to-pink-500",
       bgColor: "bg-purple-50 dark:bg-purple-900/20",
       textColor: "text-purple-600 dark:text-purple-400"
+    },
+    {
+      path: "/codeforces",
+      title: "Codeforces",
+      description: "Contest problems and solutions",
+      icon: <FaProjectDiagram />,
+      count: "11 Solutions",
+      color: "from-indigo-500 to-blue-500",
+      bgColor: "bg-indigo-50 dark:bg-indigo-900/20",
+      textColor: "text-indigo-600 dark:text-indigo-400"
+    },
+    {
+      path: "/oops",
+      title: "OOPS",
+      description: "Lecture-wise object-oriented programming",
+      icon: <FaNetworkWired />,
+      count: "7 Lectures",
+      color: "from-emerald-500 to-cyan-500",
+      bgColor: "bg-emerald-50 dark:bg-emerald-900/20",
+      textColor: "text-emerald-600 dark:text-emerald-400"
     }
   ];
 
@@ -181,7 +203,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}

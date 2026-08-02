@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T14:56:45.911Z",
+  "generatedAt": "2026-08-02T15:07:46.760Z",
   "days": {
     "Day01": [
       "datatypes.cpp",
@@ -200,6 +200,55 @@
     "houseRobber2.cpp",
     "palindromeArray.cpp"
   ],
+  "codeforces": [
+    "1.cpp",
+    "2.cpp",
+    "3.cpp",
+    "67.cpp",
+    "1676.cpp",
+    "anotherArray.cpp",
+    "distinct.cpp",
+    "luckynumber.cpp",
+    "mochaAndMath.cpp",
+    "noOfPair.cpp",
+    "teleporters.cpp"
+  ],
+  "oops": {
+    "Lecture1": [
+      "classes.cpp",
+      "memoryallocate.cpp",
+      "sizeofvar.cpp"
+    ],
+    "Lecture2": [
+      "constructor.cpp",
+      "destructor.cpp"
+    ],
+    "Lecture3": [
+      "abstraction.cpp",
+      "encapsulation.cpp",
+      "static.cpp"
+    ],
+    "Lecture4": [
+      "basics.cpp",
+      "ppp.cpp"
+    ],
+    "Lecture5": [
+      "hierarichal.cpp",
+      "hybrid.cpp",
+      "multilevel.cpp",
+      "multiple.cpp",
+      "singlelevel.cpp",
+      "types.cpp"
+    ],
+    "Lecture6": [
+      "compile.cpp",
+      "types.cpp",
+      "virtualfn.cpp"
+    ],
+    "Lecture7": [
+      "exception.cpp"
+    ]
+  },
   "topics": {
     "Array": [
       "arr.cpp",
