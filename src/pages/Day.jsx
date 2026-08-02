@@ -20,7 +20,7 @@ const fetchFileContent = async (dayFolder, fileName) => {
     if (fileName.toLowerCase().endsWith(".md")) {
       return `# Markdown Content for ${fileName}\n\n*File not found at /${dayFolder}/${fileName}. Please ensure it exists in the public directory.*`;
     } else if (fileName.toLowerCase().endsWith(".cpp")) {
-      return `// C++ Code for ${fileName}\n// File not found at /${dayFolder}/${fileName}. Please ensure it exists in the public directory.\n#include <iostream>\n\nint main() {\n    std::cout << \"File not found for ${fileName}!\" << std::endl;\n    return 1;\n}`;
+      return `// C++ Code for ${fileName}\n// File not found at /${dayFolder}/${fileName}. Please ensure it exists in the public directory.\n#include <iostream>\n\nint main() {\n    std::cout << "File not found for ${fileName}!" << std::endl;\n    return 1;\n}`;
     }
     return `Content for ${fileName}\n*File not found at /${dayFolder}/${fileName}. Please ensure it exists in the public directory.*`;
   }

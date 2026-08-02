@@ -1,9 +1,8 @@
 {
-  "generatedAt": "2026-05-11T14:25:06.280Z",
+  "generatedAt": "2026-08-02T14:56:45.911Z",
   "days": {
     "Day01": [
       "datatypes.cpp",
-      "datatypes.exe",
       "header.cpp",
       "operators.cpp",
       "README.md",
@@ -72,9 +71,7 @@
     ],
     "Day12": [
       "constructor.cpp",
-      "constructor.exe",
       "deconstructor.cpp",
-      "deconstructor.exe",
       "readme.md"
     ],
     "Day13": [
@@ -87,128 +84,99 @@
       "data.txt",
       "example.txt",
       "fileHandling.cpp",
-      "fileHandling.exe",
       "randomaccess.cpp",
-      "randomaccess.exe",
       "readme.md",
-      "sequentialaccess.cpp",
-      "sequentialaccess.exe"
+      "sequentialaccess.cpp"
     ],
     "Day15": [
       "operatoroverloading.cpp",
-      "operatoroverloading.exe",
       "readme.md",
       "unaryoperator.cpp"
     ],
     "Day16": [
       "binaryop.cpp",
-      "binaryop.exe",
       "readme.md",
-      "unaryop.cpp",
-      "unaryop.exe"
+      "unaryop.cpp"
     ],
     "Day17": [
       "readme.md",
-      "typeconversion.cpp",
-      "typeconversion.exe"
+      "typeconversion.cpp"
     ],
     "Day18": [
       "basictoclass.cpp",
-      "basictoclass.exe",
       "classtobasic.cpp",
-      "classtobasic.exe",
       "classtoclass.cpp",
-      "classtoclass.exe",
       "readme.md"
     ],
     "Day19": [
       "inheritance.cpp",
-      "inheritance.exe",
       "readme.md"
     ],
     "Day20": [
       "readme.md",
-      "typesofinheritance.cpp",
-      "typesofinheritance.exe"
+      "typesofinheritance.cpp"
     ],
     "Day21": [
       "ambiguity.cpp",
-      "ambiguity.exe",
       "readme.md",
-      "virtual.cpp",
-      "virtual.exe"
+      "virtual.cpp"
     ],
     "Day22": [
       "dma.cpp",
-      "dma.exe",
       "readme.md"
     ],
     "Day23": [
       "memoryleak.cpp",
-      "memoryleak.exe",
       "readme.md",
-      "virtualDestructor.cpp",
-      "virtualDestructor.exe"
+      "virtualDestructor.cpp"
     ],
     "Day24": [
       "polymorphism.cpp",
       "purevirtual.cpp",
-      "purevirtual.exe",
       "readme.md",
-      "virtualfn.cpp",
-      "virtualfn.exe"
+      "virtualfn.cpp"
     ],
     "Day25": [
       "abstractclass.cpp",
-      "abstractclass.exe",
       "concreteclass.cpp",
-      "concreteclass.exe",
       "readme.md",
-      "refrentialclass.cpp",
-      "refrentialclass.exe"
+      "refrentialclass.cpp"
     ],
     "Day26": [
       "earlybinding.cpp",
-      "earlybinding.exe",
       "latebinding.cpp",
-      "latebinding.exe",
       "readme.md"
     ],
     "Day27": [
       "exceptionhandling.cpp",
-      "exceptionhandling.exe",
       "readme.md"
     ],
     "Day28": [
       "readme.md",
       "rethrowing.cpp",
-      "rethrowing.exe",
-      "templates.cpp",
-      "templates.exe"
+      "templates.cpp"
     ],
     "Day29": [
       "doublets.cpp",
-      "doublets.exe",
       "greater.cpp",
       "readme.md",
       "reverse.cpp",
       "rotate.cpp",
       "sort.cpp",
       "STLbasics.cpp",
-      "STLbasics.exe",
       "templateinheritance.cpp",
-      "templateinheritance.exe",
       "threeLargest.cpp"
     ],
     "Day30": [
       "readme.md",
-      "stl.cpp",
-      "stl.exe"
+      "stl.cpp"
     ]
   },
   "leetcode": [
+    "3.cpp",
     "4.cpp",
     "33.cpp",
+    "50.cpp",
     "53.cpp",
     "74.cpp",
     "98.cpp",
@@ -223,7 +191,8 @@
     "1980.cpp",
     "1984.cpp",
     "2906.cpp",
-    "2939.cpp"
+    "2939.cpp",
+    "3120.cpp"
   ],
   "problems": [
     "aggressivecow.cpp",
@@ -246,7 +215,12 @@
     ],
     "Bit Manuplation": [
       "bintodec.cpp",
-      "dectoBinary.cpp"
+      "dectoBinary.cpp",
+      "swap.cpp"
+    ],
+    "Graphs": [
+      "cycledetectioninUDG.cpp",
+      "dfs.cpp"
     ],
     "LinkedList": [
       "copyLL.cpp",
@@ -254,6 +228,11 @@
       "isPalindrome.cpp",
       "lruCache.cpp",
       "reverseLL.cpp"
+    ],
+    "NumberTheory": [
+      "allprimeFactors.cpp",
+      "binary.cpp",
+      "primeFactor.cpp"
     ],
     "Pattern Matching": [
       "01.cpp",

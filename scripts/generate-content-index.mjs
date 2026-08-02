@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 const publicDir = path.join(projectRoot, 'public');
 const outputPath = path.join(projectRoot, 'src', 'data', 'contentIndex.json');
+const ALLOWED_FILE_EXTENSIONS = new Set(['.cpp', '.md', '.txt']);
 
 const byName = (a, b) => a.localeCompare(b, 'en', { numeric: true, sensitivity: 'base' });
 
@@ -15,7 +16,13 @@ async function listFiles(directoryPath) {
   try {
     const entries = await fs.readdir(directoryPath, { withFileTypes: true });
     return entries
-      .filter((entry) => entry.isFile())
+      .filter((entry) => {
+        if (!entry.isFile()) {
+          return false;
+        }
+
+        return ALLOWED_FILE_EXTENSIONS.has(path.extname(entry.name).toLowerCase());
+      })
       .map((entry) => entry.name)
       .sort(byName);
   } catch (error) {
