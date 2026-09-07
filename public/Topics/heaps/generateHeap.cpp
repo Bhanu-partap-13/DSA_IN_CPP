@@ -35,6 +35,15 @@ class MinHeap{
         int left = 2*i;
         int right = 2*i+1;
         
+        if(left > idx - 1){
+            break;
+        }
+        if( right > idx  - 1){
+            if(arr[i] >  arr[left]){
+                swap(arr[i], arr[left]);
+                i = left;
+            }
+        }
         if(arr[left] < arr[right]){
              if(arr[i] > arr[left]){
                 swap(arr[i], arr[left]);
@@ -45,9 +54,9 @@ class MinHeap{
              }
             }
             else{
-            if(arr[i] > arr[left]){
-               swap(arr[i], arr[left]);
-               i = left;
+            if(arr[i] > arr[right]){
+               swap(arr[i], arr[right]);
+               i = right;
                }
             else{
                break;
