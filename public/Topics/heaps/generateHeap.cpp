@@ -26,16 +26,49 @@ class MinHeap{
             i = parent;
         }
     }
+    void pop() {
+        idx--;
+        arr[1] = arr[idx];
+        int i = 1;
+
+        while(true){ //jab tk koi statement nhi hogi break jaise toh ye chlta hi rhega
+        int left = 2*i;
+        int right = 2*i+1;
+        
+        if(arr[left] < arr[right]){
+             if(arr[i] > arr[left]){
+                swap(arr[i], arr[left]);
+                i = left;
+                }
+             else{
+                break;
+             }
+            }
+            else{
+            if(arr[i] > arr[left]){
+               swap(arr[i], arr[left]);
+               i = left;
+               }
+            else{
+               break;
+            }
+        }
+        }
+    }
+    int size(){
+        return idx - 1;
+    }
 
 };
 
 int main(){
-    MinHeap h = new MinHeap();
+    MinHeap h;
     h.push(4);
     h.push(7);
     h.push(10);
     h.push(20);
     h.push(40);
     h.push(12);
-    cout<<pq.top()<<endl;
+    cout<<h.top()<<endl;
+    cout<<h.size()<<endl;
 } 
