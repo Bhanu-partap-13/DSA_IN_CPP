@@ -3,11 +3,12 @@ using namespace std;
 
 class MaxHeap {
     int idx;
-    int arr;
+    vector<int> arr;
     MaxHeap(){
         idx=1;
-        for(int i=1; i<=50; i++)
+        for(int i=1; i<=50; i++){
             arr[i] = 0;
+        }
     }
     int size(){
         return idx-1;
