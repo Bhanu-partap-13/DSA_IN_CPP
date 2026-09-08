@@ -3,9 +3,11 @@ using namespace std;
 
 class MaxHeap {
     int idx;
-    int arr[50];
+    int arr;
     MaxHeap(){
         idx=1;
+        for(int i=1; i<=50; i++)
+            arr[i] = 0;
     }
     int size(){
         return idx-1;
@@ -62,8 +64,8 @@ class MaxHeap {
         }
     }
     void display(){
-        for(int i : idx){
-            cout << i << " ";
+        for(int i = 1; i < idx; i++){
+            cout << arr[i] << " ";
         }
     }
 };
